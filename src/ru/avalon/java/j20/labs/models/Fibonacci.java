@@ -18,10 +18,27 @@ import java.util.Iterator;
  */
 public class Fibonacci implements Iterable<Integer> {
 
+    /private int fnum[];
+
     /**
-     * Итератор, выполняющий обход последовательности
-     * чисел Фибоначчи.
+     * Итератор, выполняющий обход последовательности чисел Фибоначчи.
      */
+    public Fibonacci(int length) {
+        fnum = new int[length];
+        if (length > 0) {
+        fnum[0] = 0;}
+        if (length > 1) {
+            fnum[1] = 1;}
+        if (length > 2) {
+            for (int i = 2; i < length; i++) {
+                fnum[i] = fnum[i - 1] + fnum[i - 2];
+            }
+        }
+    
+    public int[] getarray() {
+        return fnum;
+    }
+
     private static class FibonacciIterator implements Iterator<Integer> {
 
         /**
