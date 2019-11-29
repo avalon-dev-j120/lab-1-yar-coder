@@ -9,7 +9,7 @@ package ru.avalon.java.j20.labs.core;
  */
 public interface Factory<Result, Param> {
 
-    /**
+    /*
      * Возвращает экземпляр, создаваемый фабрикой.
      *
      * @return новый экземпляр типа {@code T}
