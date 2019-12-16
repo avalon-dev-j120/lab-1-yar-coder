@@ -48,6 +48,7 @@ public class Task1 implements Task {
         System.out.println("min="+min);
         System.out.println("max="+max);
         System.out.println("avg="+avg);
+        System.out.println("");
         /*
          * TODO(Студент): Выполните задание №1
          *

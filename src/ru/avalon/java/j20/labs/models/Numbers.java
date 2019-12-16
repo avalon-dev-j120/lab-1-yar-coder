@@ -2,14 +2,14 @@ package ru.avalon.java.j20.labs.models;
 
 public final class Numbers {
 
-    /**
+    /*
      * Скрытый конструктор, чтобы предотвратить создание
      * экземпляров данного типа.
      */
      private Numbers() {
     }
 
-    /**
+    /*
      * Возвращает сумму значений переданного массиа.
      *
      * @param values массив чисел

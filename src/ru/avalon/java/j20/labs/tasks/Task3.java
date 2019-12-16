@@ -1,12 +1,13 @@
 package ru.avalon.java.j20.labs.tasks;
 
 import java.util.Arrays;
-import ru.avalon.java.j20.labs.Task;
 
 import java.util.Iterator;
+import ru.avalon.java.j20.labs.Task;
 import ru.avalon.java.j20.labs.models.Fibonacci;
+import ru.avalon.java.j20.labs.models.Numbers;
 
-/**
+/*
  * Задание №3
  *
  * <p>
@@ -38,10 +39,13 @@ public class Task3 implements Task {
          * 4. С использованием отладчика проверьте корректность
          *    выполнения задания.
          */
-        
-        Fibonacci arrayFib = new Fibonacci(20);
-        System.out.println("Массив: "+Arrays.toString(arrayFib.fnum));
-        
-    
+        Iterable<Integer> iterator = new Fibonacci(20);
+        int sum=0;
+        for (Integer i: iterator) {
+            sum +=i;
+            System.out.print(i.toString()+" ");
+        }
+        System.out.println("");
+        System.out.println("Сумма элементов: "+sum);
     }
 }
