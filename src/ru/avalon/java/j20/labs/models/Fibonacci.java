@@ -2,7 +2,7 @@ package ru.avalon.java.j20.labs.models;
 
 import java.util.Iterator;
 
-/**
+/*
  * Модель получения последовательности чисел Фибоначчи.
  *
  * <p>Числа Фибонааччи (иногда пишут Фибона́чи[1]) — элементы
@@ -17,14 +17,27 @@ import java.util.Iterator;
  * @see <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8">Числа Фибоначчи</a>
  */
 public class Fibonacci implements Iterable<Integer> {
-
-    /**
-     * Итератор, выполняющий обход последовательности
-     * чисел Фибоначчи.
+    private final int length;
+    public Fibonacci (int length) {
+        this.length=length;
+    }
+    /*
+     * Итератор, выполняющий обход последовательности чисел Фибоначчи.
      */
-    private static class FibonacciIterator implements Iterator<Integer> {
 
-        /**
+    private static class FibonacciIterator 
+            implements Iterator<Integer> {
+        private int remaining;
+        private final int length;
+        private int prev;
+        private int prev2;
+        public FibonacciIterator (int length) {
+            this.remaining=length;
+            this.length=length;
+            prev=1;
+            prev2=0;
+        }
+        /*
          * Определяет, есть ли следующее значение
          * последовательности чисел Фибоначчи.
          *
@@ -34,10 +47,10 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public boolean hasNext() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+            return remaining>0;
         }
 
-        /**
+        /*
          * Возвращает следующее число последовательности
          * чисел Фибоначчи.
          *
@@ -45,11 +58,24 @@ public class Fibonacci implements Iterable<Integer> {
          */
         @Override
         public Integer next() {
-            throw new UnsupportedOperationException("Not implemented yet!");
+                if (remaining==length) {
+                    remaining--;
+                    return 0;} 
+                    else if (remaining==(length-1)) {
+                        remaining--;
+                        return 1;}
+                        else {
+                            int current = prev2+prev;
+                            prev2=prev;
+                            prev=current;
+                            remaining--;
+                            return current;
+                    }
+                }
         }
-    }
+   
 
-    /**
+    /*
      * Возвращает итератор, позволяющий выполнить обход
      * последовательности чисел Фибоначчи.
      *
@@ -57,6 +83,6 @@ public class Fibonacci implements Iterable<Integer> {
      */
     @Override
     public Iterator<Integer> iterator() {
-        return new FibonacciIterator();
-    }
-}
+        return new FibonacciIterator(length);
+    } 
+} 

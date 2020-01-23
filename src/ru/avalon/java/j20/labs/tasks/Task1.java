@@ -1,10 +1,11 @@
 package ru.avalon.java.j20.labs.tasks;
 
+import java.util.Arrays;
 import ru.avalon.java.j20.labs.Task;
 import ru.avalon.java.j20.labs.core.RandomArrayFactory;
 import ru.avalon.java.j20.labs.models.Numbers;
 
-/**
+/*
  * Задание №1.
  *
  * <p>Тема: "Создание обобщённых методов".
@@ -14,7 +15,7 @@ import ru.avalon.java.j20.labs.models.Numbers;
  */
 public class Task1 implements Task {
 
-    /**
+    /*
      * Фабрика, создающая массивы случайных чисел.
      */
     private final RandomArrayFactory arrayFactory = new RandomArrayFactory();
@@ -24,10 +25,30 @@ public class Task1 implements Task {
      */
     @Override
     public void run() {
+        System.out.println("выполняется Task1");
         int[] array = arrayFactory.getInstance(20);
-        int min = Numbers.min(array);
-        int max = Numbers.max(array);
-        double avg = Numbers.avg(array);
+        System.out.println("array: "+Arrays.toString(array));
+        Integer a[]= Numbers.castIntToInteger(array);
+        System.out.println("Integer array: "+Arrays.toString(a));
+        double min = Numbers.min(a);
+        double max = Numbers.max(a);
+        double avg = Numbers.avg(a);
+        
+        System.out.println("min="+min);
+        System.out.println("max="+max);
+        System.out.println("avg="+avg);
+        
+        System.out.println("");
+        Double b[]= Numbers.castIntToDouble(array);
+        System.out.println("Double array: "+Arrays.toString(b));
+        min = Numbers.min(b);
+        max = Numbers.max(b);
+        avg = Numbers.avg(b);
+        
+        System.out.println("min="+min);
+        System.out.println("max="+max);
+        System.out.println("avg="+avg);
+        System.out.println("");
         /*
          * TODO(Студент): Выполните задание №1
          *

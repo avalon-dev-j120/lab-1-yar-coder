@@ -8,12 +8,12 @@ import java.util.Random;
  */
 public class RandomArrayFactory implements Factory<int[], Integer> {
 
-    /**
+    /*
      * Генератор псевдо-случайных чисел.
      */
     private final Random random = new Random();
 
-    /**
+    /*
      * Возвращает новый массив заданной длины. Массив
      * содержит случайные значения в диапазоне от 1 до 100.
      *
